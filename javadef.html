@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin: 0;
+        }
+        .question {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 300px;
+            font-size: 16px;
+        }
+        button {
+            
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .next-button {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .next-button a {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Basic Definitions</h1>
+    
+    <div class="question">
+        <h2>Question 1:</h2>
+        <p>Is Java Platform Independent? If yes, then how?</p>
+        <input type="text" id="q1" placeholder="Enter your answer...">
+    </div>
+
+    <div class="question">
+        <h2>Question 2:</h2>
+        <p>What are the top Java Features?</p>
+        <input type="text" id="q2" placeholder="Enter your answer...">
+    </div>
+
+    <div class="question">
+        <h2>Question 3:</h2>
+        <p>What is JVM?</p>
+        <input type="text" id="q3" placeholder="Enter your answer...">
+    </div>
+
+    <div class="question">
+        <h2>Question 4:</h2>
+        <p>What is a classloader?</p>
+        <input type="text" id="q4" placeholder="Enter your answer...">
+    </div>
+
+    <div class="question">
+        <h2>Question 5:</h2>
+        <p>How many types of packages are there in Java?</p>
+        <input type="text" id="q5" placeholder="Enter your answer...">
+    </div>
+
+    <button onclick="submitAnswers()">Submit Answers</button>
+    <div class="next-button">
+        <a href="javafill.html">Next</a>
+    </div>
+    <script>
+        function submitAnswers() {
+            var answers = [];
+            answers.push(document.getElementById("q1").value);
+            answers.push(document.getElementById("q2").value);
+            answers.push(document.getElementById("q3").value);
+            answers.push(document.getElementById("q4").value);
+            answers.push(document.getElementById("q5").value);
+            console.log(answers); // You can process the answers here
+        }
+    </script>
+</body>
+</html>

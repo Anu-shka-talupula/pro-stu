@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Learning Levels</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .submit-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #1e87d0;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-button:hover {
+            background-color: #135e96;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select Java Learning Level</h1>
+        <p>For String Reverse</p>
+
+        <label for="capability">Capability</label>
+        <select id="capability">
+            <option value="">Select one</option>
+            <option value="entryLevel">Entry Level</option>
+            <option value="foundational">Foundational</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="expert">Expert</option>
+        </select>
+        
+        <label for="maturity">Maturity</label>
+        <select id="maturity_level"> <!-- Updated ID for maturity select element -->
+            <option value="">Select one</option>
+            <option value="qstentry_1">Level 1</option>
+            <option value="entry_2">Level 2</option>
+            <option value="entry_3">Level 3</option>
+        </select>
+        
+        <br>
+        <button class="submit-button" onclick="submitLevel()">Submit</button>
+    </div>
+
+    <script>
+        function submitLevel() {
+            var capabilityLevel = document.getElementById('capability').value;
+            var maturityLevel = document.getElementById('maturity_level').value; // Updated ID here
+            if (capabilityLevel && maturityLevel) {
+                // Both levels are selected, redirect to the next page
+                if (capabilityLevel === 'expert') {
+                    window.location.href = "expert_" + maturityLevel + ".php";
+                } else {
+                    window.location.href = maturityLevel + ".php";
+                }
+            } else {
+                // Prompt the user to select both levels
+                alert("Please select both capability and maturity levels.");
+            }
+        }
+    </script>
+    
+</body>
+</html>

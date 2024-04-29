@@ -1,0 +1,162 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Center align items */
+    align-items: center;
+    min-height: auto;
+    /* Change height to min-height */
+    background-color: #f0f0f0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffc107;
+    padding: 5px 5px;
+    text-align: center;
+}
+
+.header-links a {
+    color: #fff;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.header-links a:hover {
+    text-decoration: none;
+}
+
+.header .fas {
+    margin-right: 10px; /* Adjust margin as needed */
+}
+
+.sidebar {
+    background-color: #f4f4f4;
+    padding: 20px;
+    height: 100vh;
+    width: 20%;
+    float: left;
+}
+
+.content {
+    padding: 10px;
+    height: max-content;
+    float: left;
+}
+
+.menu-item {
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    color: #007bff;
+}
+
+.photo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.photo img {
+    width: 150px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+.hidden {
+    display: none;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.edit-options {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-container:hover .edit-options {
+    opacity: 1;
+}
+
+.hr-lines {
+    position: relative;
+    max-width: 600px;
+    background-color: grey;
+    text-align: left;
+}
+
+.hr-lines:before {
+    content: " ";
+    height: 2px;
+    background: grey;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+
+.hr-lines:after {
+    content: " ";
+    height: 2px;
+    width: auto;
+    background: grey;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+}
+
+.button-container .button {
+    width: auto;
+    /* Adjusted width */
+    max-width: 500px;
+    /* Limit maximum width */
+    height: 100px;
+    /* Fixed height for all buttons */
+    margin: 20px 20px;
+    /* Adjust margin - added 10px between buttons */
+    background-color: #ff6347;
+    /* Changed background color */
+    color: #fff;
+    font-size: 15px;
+    /* Increased font size */
+    border: none;
+    padding: 25px;
+    /* Increased padding */
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 10px;
+    /* Curved edges */
+    transition: all 0.3s ease;
+    /* Smooth transition */
+}
+
+.box {
+    min-width: 130px;
+    max-width: 150px;
+    min-height: 100px;
+    background-color: #a99c74;
+    margin: 10px;
+    padding: 20px;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

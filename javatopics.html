@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Question Topics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center align content */
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .topic-options {
+            display: flex; /* Use Flexbox for layout */
+            flex-wrap: wrap; /* Wrap items to the next line if needed */
+            justify-content: center; /* Center align items horizontally */
+            margin-bottom: 20px;
+        }
+        .topic-option {
+            margin: 0 10px; /* Add spacing between options */
+            white-space: nowrap; /* Prevent wrapping of long labels */
+        }
+        .topic-checkbox {
+            margin-right: 5px; /* Adjust spacing between checkbox and label */
+            vertical-align: middle;
+        }
+        .topic-label {
+            font-size: 16px;
+            color: #333;
+            vertical-align: middle;
+        }
+        .submit-button {
+            display: inline-block; /* Display submit button inline */
+            margin-top: 20px; /* Add top margin for spacing */
+            padding: 10px 20px;
+            background-color: #1e87d0;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-button:hover {
+            background-color: #135e96;
+        }
+        .anchor-button {
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1e87d0;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .anchor-button:hover {
+            background-color: #135e96;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose Java Question Topics</h1>
+        <p>Select one or more topics:</p>
+        <div class="topic-options">
+            <div class="topic-option">
+                <input type="checkbox" id="topic1" class="topic-checkbox" name="topic" value="Variables">
+                <label for="topic1" class="topic-label">string reverse</label>
+            </div>
+            <div class="topic-option">
+                <input type="checkbox" id="topic2" class="topic-checkbox" name="topic" value="Control Statements">
+                <label for="topic2" class="topic-label">Control Statements</label>
+            </div>
+            <div class="topic-option">
+                <input type="checkbox" id="topic3" class="topic-checkbox" name="topic" value="Methods">
+                <label for="topic3" class="topic-label">Methods</label>
+            </div>
+            <!-- Add more topics as needed -->
+        </div>
+        <a href="levels.html" class="anchor-button" onclick="submitTopics()">Submit</a>
+    </div>
+
+    <script>
+        function submitTopics() {
+            var selectedTopics = document.querySelectorAll('input[name="topic"]:checked');
+            var topicsArray = [];
+            selectedTopics.forEach(function(topic) {
+                topicsArray.push(topic.value);
+            });
+            // Send selected topics to server or process them as needed
+            console.log('Selected topics:', topicsArray);
+            // Redirect to another page or perform other actions after submitting topics
+        }
+    </script>
+</body>
+</html>

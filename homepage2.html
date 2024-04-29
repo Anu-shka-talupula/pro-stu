@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Count Up Animation</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+    body {
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f5f5f5;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-bottom: 20px; /* Adjusted margin between headers */
+    }
+    
+
+
+    .header .logo {
+      font-size: 25px;
+      font-family: 'Sriracha', cursive;
+      color: #000;
+      text-decoration: none;
+      margin-left: 30px;
+      
+    }
+
+    .nav-items {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #f5f5f5;
+      margin-left: 20px;
+    }
+
+    .nav-items a {
+      text-decoration: none;
+      color: #000;
+      padding: 15px;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 5px;
+      /* Adjust margin for spacing */
+      width: 150px
+    }
+
+    .search-bar button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #302f49;
+      color: #000;
+    }
+
+    /* CSS for main element */
+     /* .intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 500px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1031&q=80");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }  */
+    .intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("http://localhost/project-studs/images/yellow_pic1.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: changeBackground 15s infinite alternate; /* Animation to change background every 10 seconds */
+}
+
+@keyframes changeBackground {
+  20% { background-image: url("http://localhost/project-studs/images/image1.jpeg"); }
+  35% { background-image: url("http://localhost/project-studs/images/image2.jpeg"); }
+  50% { background-image: url("http://localhost/project-studs/images/imagee3.jpeg"); }
+  75% { background-image: url("http://localhost/project-studs/images/image4.jpeg"); }
+  100% { background-image: url("http://localhost/project-studs/images/imagee5.jpeg"); }
+}
+
+
+    /* .intro h1 {
+      font-family: sans-serif;
+      font-size: 60px;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0;
+    } */
+    .intro h1 {
+  font-family: sans-serif;
+  font-size: 60px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  position: relative;
+  animation: textFall 3s linear infinite; /* Animation for falling effect */
+}
+
+
+
+    #welcome-message {
+      color: white;
+      font-size: 20px;
+      color: #d1d1d1;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }
+
+    .intro p {
+      font-size: 20px;
+      color: #000000;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }
+
+    .intro button {
+      background-color: #5edaf0;
+      color: #000;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4)
+    }
+
+    .achievements {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 80px;
+    }
+
+    .achievements .work {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .achievements .work i {
+      width: fit-content;
+      font-size: 50px;
+      color: #333333;
+      border-radius: 50%;
+      border: 2px solid #333333;
+      padding: 12px;
+    }
+
+    .achievements .work .work-heading {
+      font-size: 20px;
+      color: #333333;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }
+
+    .achievements .work .work-text {
+      font-size: 15px;
+      color: #585858;
+      margin: 10px 0;
+    }
+
+    .container {
+      width: 22vmin;
+      height: 22vmin;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 1em 0;
+
+      font-size: 16px;
+      border-radius: 0.5em;
+      background-color: #f5f5f5;
+      border-bottom: 10px solid #302f49;
+
+
+    }
+
+    i {
+      color: black;
+      font-size: 2.5em;
+      text-align: center;
+    }
+
+    span.num {
+      color: black;
+      display: grid;
+      place-items: center;
+      font-weight: 600;
+      font-size: 3em;
+    }
+
+    span.text {
+      color: black;
+      font-size: 1em;
+      text-align: center;
+      pad: 0.7em 0;
+      font-weight: 400;
+      line-height: 0;
+    }
+
+    @media screen and (max-width: 1024px) {
+
+      .container {
+        height: 26vmin;
+        width: 26vmin;
+        font-size: 12px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+
+      .container {
+        width: 100%;
+        height: 25vmin;
+        font-size: 8px;
+      }
+    }
+
+
+
+
+    /* CSS for footer */
+    .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f7be02;
+  padding: 10px 20px; /* Reduced padding */
+}
+
+.footer .copy {
+  color: #fff;
+  font-size: 14px; /* Reduced font size */
+}
+
+.bottom-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0; /* Reduced padding */
+}
+
+.bottom-links .links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px; /* Reduced padding */
+}
+
+.bottom-links .links span {
+  font-size: 16px; /* Reduced font size */
+  color: #fff;
+  text-transform: uppercase;
+  margin: 5px 0; /* Reduced margin */
+}
+
+.bottom-links .links a {
+  text-decoration: none;
+  color: #000000;
+  padding: 5px 10px; /* Reduced padding */
+}
+
+.nav-items .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 140px; /* Reduced min-width */
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2); /* Reduced box-shadow */
+  z-index: 1;
+}
+
+.nav-items .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.nav-items .dropdown-content a {
+  color: #000;
+  padding: 8px 12px; /* Reduced padding */
+  text-decoration: none;
+  display: block;
+}
+
+.nav-items .dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <a href="#" class="logo">My Code Smiles</a>
+    <nav class="nav-items">
+      <div id="user-display" style="display: none;">username</div>
+
+      <div class="dropdown">
+        <div class="dropdown ">Login </div>
+        <div class="dropdown-content">
+          <a href="./new-login.html">User</a>
+          <a href="./Login.html">Admin</a>
+        </div>
+      </div>
+   
+      <a href="./reg.php">Register</a>
+
+      <div class="dropdown">
+        <div class="dropdown"> About Us </div>
+        <div class="dropdown-content">
+          <a href="./Founders.html">Founders</a>
+          <a href="./benefits.html">Benefits</a>
+        </div>
+      </div>
+
+      <a href="./contactus.html">Contact Us</a>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Search">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="intro">
+    <h1>My Code Smiles</h1>
+    <p>Thank you for visiting our site!!!</p>
+    
+    <p>We make your Dream Career Achievable</p>
+
+  </div>
+  <div class="achievements">
+    <div class="work">
+      <i class="fas fa-atom"></i>
+      <p class="work-heading">Projects</p>
+      <a href="project.html"><button>Learn More</button></a>
+    </div>
+    <div class="work">
+      <i class="fas fa-skiing"></i>
+      <p class="work-heading">Skills</p>
+      <a href="skills.html"><button>Learn More</button>
+      </a>
+    </div>
+    <div class="work">
+      <i class="fas fa-ethernet"></i>
+      <p class="work-heading">Network</p>
+      <button>Learn More</button>
+    </div>
+  </div>
+
+  <div class="achievements">
+    <div class="container">
+      <i class="fa-solid fa-registered"></i></i>
+      <span class="num" data-val="400" id="userCounter"></span>
+      <span class="text">Registered</span>
+    </div>
+
+    <div class="container">
+      <i class="fas fa-smile-beam"></i>
+      <span class="num" data-val="340">000</span>
+      <span class="text">Benefitted</span>
+    </div>
+
+    <div class="container">
+      <i class="fas fa-list"></i>
+      <span class="num" data-val="225">000</span>
+      <span class="text">Not Benefitted</span>
+    </div>
+
+    <div class="container">
+      <i class="fas fa-star"></i>
+      <span class="num" data-val="280">000</span>
+      <span class="text">Rating</span>
+    </div>
+  </div>
+  <!-- Script -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+      fetchUserCounter();
+    });
+
+    function fetchUserCounter() {
+      fetch('./getusercount.php')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('userCounter').textContent = data;
+          //const count = parseInt(data); // Parse count as integer
+          //const formattedCount = pad(count, 3); // Pad count with leading zeros to ensure it always has three digits
+          //document.getElementById('userCounter').textContent = formattedCount;
+        })
+        .catch(error => {
+          console.error('Error fetching user counter:', error);
+        });
+    }
+
+  </script>
+
+  <footer class="footer">
+    <div class="copy">&copy; My Code Smiles</div>
+    <div class="bottom-links">
+      <div class="links">
+        <span>More Info</span>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Connect</a>
+        <a href="#">Rate Us</a>
+        <a href="#">Feedback</a>
+      </div>
+      <div class="links">
+        <span>Social Links</span>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>

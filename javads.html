@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java String Reversal & Data Structures Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .option {
+            margin-bottom: 10px;
+        }
+        .option label {
+            cursor: pointer;
+        }
+        .submit-btn {
+            background-color: #4aa7ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #357ae8;
+        }
+        .correct-answer {
+            color: green;
+            font-weight: bold;
+        }
+        .incorrect-answer {
+            color: red;
+            font-weight: bold;
+        }
+        .error-message {
+            color: red;
+            font-style: italic;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Java String Reversal & Data Structures Quiz</h2>
+        <div class="question">
+            <p>1. Which data structure is commonly used to reverse a string efficiently?</p>
+            <div class="option">
+                <input type="radio" id="option1" name="answer1" value="a">
+                <label for="option1">a) Array</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="option2" name="answer1" value="b">
+                <label for="option2">b) Stack</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="option3" name="answer1" value="c">
+                <label for="option3">c) Linked List</label>
+            </div>
+            <div id="errorMessage1" class="error-message">Please select the correct answer.</div>
+        </div>
+        <div class="question">
+            <p>2. Which of the following is NOT an in-place string reversal algorithm?</p>
+            <div class="option">
+                <input type="radio" id="option4" name="answer2" value="d">
+                <label for="option4">d) Using a temporary string</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="option5" name="answer2" value="e">
+                <label for="option5">e) Using recursion</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="option6" name="answer2" value="f">
+                <label for="option6">f) Iterative reversal</label>
+            </div>
+            <div id="errorMessage2" class="error-message">Please select the correct answer.</div>
+        </div>
+        <div class="question">
+            <p>3. Which data structure is used in Java to implement a LIFO (Last In, First Out) stack?</p>
+            <div class="option">
+                <input type="radio" id="option7" name="answer3" value="g">
+                <label for="option7">g) LinkedList</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="option8" name="answer3" value="h">
+                <label for="option8">h) ArrayList</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="option9" name="answer3" value="i">
+                <label for="option9">i) Stack</label>
+            </div>
+            <div id="errorMessage3" class="error-message">Please select the correct answer.</div>
+        </div>
+        <div class="question">
+            <p>4. Which Java interface provides the functionality of ordering elements in a collection?</p>
+            <div class="option">
+                <input type="radio" id="option10" name="answer4" value="j">
+                <label for="option10">j) Set</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="option11" name="answer4" value="k">
+                <label for="option11">k) Map</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="option12" name="answer4" value="l">
+                <label for="option12">l) List</label>
+            </div>
+            <div id="errorMessage4" class="error-message">Please select the correct answer.</div>
+        </div>
+        <div id="overallErrorMessage" class="error-message">Please answer all questions before submitting.</div>
+        <button class="submit-btn" onclick="submitQuiz()">Submit</button>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            var correctAnswers = ["b", "d", "i", "l"]; // Correct answers for each question
+            var selectedAnswers = []; // Array to store user's selected answers
+
+            // Get selected answers for each question
+            for (var i = 1; i <= 4; i++) {
+                var answer = document.querySelector('input[name="answer' + i + '"]:checked');
+                if (answer) {
+                    selectedAnswers.push(answer.value);
+                }
+            }
+
+            // Check if all questions are answered
+            if (selectedAnswers.length < 4) {
+                document.getElementById('overallErrorMessage').style.display = 'block';
+                return;
+            }
+
+            // Hide error message
+            document.getElementById('overallErrorMessage').style.display = 'none';
+
+            // Check answers and provide feedback
+            for (var i = 0; i < correctAnswers.length; i++) {
+                var questionNumber = i + 1;
+                var answerElement = document.getElementById('option' + (correctAnswers[i] === selectedAnswers[i] ? 'Correct' : 'Incorrect') + questionNumber);
+                if (answerElement) {
+                    answerElement.classList.add(correctAnswers[i] === selectedAnswers[i] ? 'correct-answer' : 'incorrect-answer');
+                    if (correctAnswers[i] !== selectedAnswers[i]) {
+                        document.getElementById('errorMessage' + questionNumber).style.display = 'block';
+                    }
+                }
+            }
+
+            // Disable radio buttons after submission
+            var radioButtons = document.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach(function(button) {
+                button.disabled = true;
+            });
+
+            // Disable submit button after submission
+            document.querySelector('.submit-btn').disabled = true;
+        }
+    </script>
+</body>
+</html>

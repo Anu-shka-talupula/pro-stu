@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java String Reverse Approaches</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .question {
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+        }
+        .option {
+            margin-bottom: 10px;
+        }
+        .submit-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #1e87d0;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-button:hover {
+            background-color: #135e96;
+        }
+        .message {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        #start-button {
+            display: none;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #1e87d0;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #start-button:hover {
+            background-color: #135e96;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="questions-container">
+        <h1>Java String Reverse Approaches</h1>
+        <p>Please select the correct approach to reverse a string in Java:</p>
+        <div class="question">Which of the following is a correct approach to reverse a string?</div>
+        <div class="options">
+            <label class="option"><input type="radio" name="answer" value="A"> Using a for loop <a href="javascript:void(0);" class="know-more-link" onclick="openModal('ForLoop')">Know More</a></label>
+            <label class="option"><input type="radio" name="answer" value="B"> Using the reverse() method of StringBuilder <a href="javascript:void(0);" class="know-more-link" onclick="openModal('StringBuilder')">Know More</a></label>
+            <label class="option"><input type="radio" name="answer" value="C"> Using the split() method <a href="javascript:void(0);" class="know-more-link" onclick="openModal('SplitMethod')">Know More</a></label>
+            <label class="option"><input type="radio" name="answer" value="D"> Using recursion <a href="javascript:void(0);" class="know-more-link" onclick="openModal('Recursion')">Know More</a></label>
+            <label class="option"><input type="radio" name="answer" value="E"> All of the above</label>
+        </div>
+        <center><button class="submit-button" onclick="submitAnswer()">Submit Answer</button></center>
+        <div class="message" id="message"></div>
+    </div>
+
+    <a href="qsts2.html"><button id="start-button">Choose the levels</button></a>
+
+    <!-- The modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-content-placeholder"></div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(option) {
+            var modal = document.getElementById("myModal");
+            var modalContent = document.getElementById("modal-content-placeholder");
+            modal.style.display = "block";
+
+            // Fill the modal content based on the option
+            if (option === 'ForLoop') {
+                modalContent.innerHTML = "The 'for' loop iterates through each character in the string and reverses it.";
+            } else if (option === 'StringBuilder') {
+                modalContent.innerHTML = "Using the reverse() method of StringBuilder is an efficient way to reverse a string.";
+            } else if (option === 'SplitMethod') {
+                modalContent.innerHTML = "The split() method is used to split the string into an array of substrings, but it doesn't reverse the string itself.";
+            } else if (option === 'Recursion') {
+                modalContent.innerHTML = "Using recursion involves calling a function repeatedly until a base case is reached. It can be used to reverse a string.";
+            } else if (option === 'All') {
+                modalContent.innerHTML = "All of the above options can be used to reverse a string in Java, but they have different approaches and efficiencies.";
+            }
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        function submitAnswer() {
+            var selectedAnswer = document.querySelector('input[name="answer"]:checked');
+            var messageElement = document.getElementById('message');
+            if (selectedAnswer) {
+                var answer = selectedAnswer.value;
+                if (answer === 'E') {
+                    messageElement.textContent = "Yay! Great! Let's get started with basic questions on this topic.";
+                    document.getElementById('start-button').style.display = 'block';
+                } else {
+                    messageElement.textContent = "Almost there. Please try again.";
+                    document.getElementById('start-button').style.display = 'none'; // Hide the button if the answer is wrong
+                }
+            } else {
+                alert('Please select an answer.');
+            }
+        }
+    </script>
+</body>
+</html>
